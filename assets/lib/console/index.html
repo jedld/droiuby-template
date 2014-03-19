@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>Droiuby Console</title>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="cmdline.js"></script>
+</head>
+<body >
+	<div class="header">
+   	<p>Droiuby Console</p>
+   	<div class="upload-section clearfix">
+     	<a href="#" id="showuploader">Upload App Archive</a>
+     	<form id="fileuploader" enctype='multipart/form-data' action="/upload" method="post">
+       	<input type="hidden" id="run" name="run" value="true"/>
+       	<span class="fileupload">
+          <input type="file" size="24" id="filename" name="file" class="browserhidden"/>
+          <span class="browservisible">
+            <input type="text" id="filefield" name="name"/>
+          </span>
+        </span>
+        <input type="image" id="reload" src="reload.png" alt="Reload">
+	    </form>
+	  </div>
+	</div>
+	<section  id="output"></section>
+	<form id="console" action="#" method="post">
+		<input id="command" placeholder="?" type=text value=""  autocomplete="off" />
+		<input id="toggle_multiline" class="enabled" type=button value="multiline"/>
+		<div id="multiline_section" class="disabled">
+			<textarea id="command_multiline" rows="10" cols="100"></textarea>
+			<input id="submit" class='submit' type=button value="submit"/>
+		</div>
+	</form>
+</body>
+</html>
+
