@@ -1,4 +1,4 @@
-package com.droiuby.template;
+package <%= @package_name %>;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,15 +8,15 @@ import com.droiuby.application.bootstrap.DroiubyBootstrap;
 import com.droiuby.interfaces.DroiubyHelperInterface;
 
 public class DroiubyActivity extends Activity {
-	
+
 	DroiubyHelperInterface helper;
-	
+
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Bundle params = this.getIntent().getExtras();
 		String bundleName = params.getString("bundle");
 		String pageUrl = params.getString("pageUrl");
-		
+
 		helper = DroiubyBootstrap.getHelperInstance();
 		helper.runController(this, bundleName, pageUrl);
 		helper.setExecutionBundle(this, bundleName);
@@ -36,9 +36,8 @@ public class DroiubyActivity extends Activity {
 
 	@Override
 	protected void onDestroy() {
-		// TODO Auto-generated method stub
 		super.onDestroy();
 		helper.onDestroy();
 	}
-	
+
 }
