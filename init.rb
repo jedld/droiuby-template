@@ -23,5 +23,11 @@ class Init < Thor
     template File.join('AndroidManifest.xml.erb'), "AndroidManifest.xml"
     template File.join('StartupActivity.java.erb'), File.join(dest_folder, *package_folders, "StartupActivity.java")
     template File.join('DroiubyActivity.java.erb'), File.join(dest_folder, *package_folders, "DroiubyActivity.java")
+    say "Trying to run android update project"
+    begin
+      `android update project -p .`
+      say "done."
+    rescue Exception=>e
+    end
   end
 end
