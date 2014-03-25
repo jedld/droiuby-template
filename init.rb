@@ -7,12 +7,14 @@ class Init < Thor
   source_root File.join(File.dirname(__FILE__), 'templates')
 
   desc "init [java package] [archive]", "initialize this template project"
-  def init(package, archive)
+  def init(package, archive, name = 'HelloWorld')
     package_folders = package.split('.')
     dest_folder = 'src'
     @package_name = package
     @archive_name = archive
+    @project_name = name
     template File.join('AndroidManifest.xml.erb'), "AndroidManifest.xml"
+    template File.join('strings.xml.erb'), File.join('res','values','styles.xml')
     template File.join('StartupActivity.java.erb'), File.join(dest_folder, *package_folders, "StartupActivity.java")
     template File.join('DroiubyActivity.java.erb'), File.join(dest_folder, *package_folders, "DroiubyActivity.java")
     say "Trying to run android update project"
