@@ -1,12 +1,4 @@
-require 'rubygems'
-require 'net/http'
-require 'net/http/post/multipart'
-require 'zip'
 require 'thor'
-require "uri"
-require 'cgi'
-require 'active_support/core_ext/object'
-require 'active_support/core_ext/string'
 
 class Init < Thor
 
