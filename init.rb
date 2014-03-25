@@ -14,7 +14,7 @@ class Init < Thor
     @archive_name = archive
     @project_name = name
     template File.join('AndroidManifest.xml.erb'), "AndroidManifest.xml"
-    template File.join('strings.xml.erb'), File.join('res','values','styles.xml')
+    template File.join('strings.xml.erb'), File.join('res','values','strings.xml')
     template File.join('StartupActivity.java.erb'), File.join(dest_folder, *package_folders, "StartupActivity.java")
     template File.join('DroiubyActivity.java.erb'), File.join(dest_folder, *package_folders, "DroiubyActivity.java")
     say "Trying to run android update project"
