@@ -6,7 +6,7 @@ class Init < Thor
 
   source_root File.join(File.dirname(__FILE__), 'templates')
 
-  desc "init [java package] [archive]", "initialize this template project"
+  desc "init [java package] [archive] [name]", "initialize this template project"
   def init(package, archive, name = 'HelloWorld')
     package_folders = package.split('.')
     dest_folder = 'src'
